@@ -1,6 +1,30 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/phillipkamps/turing/3module/sweater_weather/app/poros/forecast.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/phillipkamps/turing/3module/sweater_weather/app/facades/forecast_facade.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/phillipkamps/turing/3module/sweater_weather/app/services/forecast_service.rb": {
         "lines": [
           1,
@@ -36,6 +60,6 @@
         ]
       }
     },
-    "timestamp": 1654973061
+    "timestamp": 1654977711
   }
 }

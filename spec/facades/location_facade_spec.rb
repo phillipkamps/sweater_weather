@@ -6,6 +6,7 @@ RSpec.describe LocationFacade do
     coords = LocationFacade.coords(city_state)
 
     expect(coords).to be_a Hash
+    expect(coords.count).to eq 2
     expect(coords).to have_key :lat
     expect(coords).to have_key :lng
   end
