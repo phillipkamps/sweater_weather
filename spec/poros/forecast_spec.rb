@@ -7,7 +7,7 @@ RSpec.describe Forecast do
     data = ForecastFacade.data(lat, lng)
     forecast = Forecast.new(data)
 
-    expect(forecast.current.count).to eq 14
+    expect(forecast.current.count).to eq 15
     expect(forecast.daily.count).to eq 5
     expect(forecast.hourly.count).to eq 8
   end
