@@ -1,7 +1,41 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/phillipkamps/turing/3module/sweater_weather/app/services/location_service.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/phillipkamps/turing/3module/sweater_weather/app/services/base_service.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      }
     },
-    "timestamp": 1654963940
+    "timestamp": 1654968369
   }
 }
