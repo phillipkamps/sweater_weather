@@ -5,7 +5,10 @@ RSpec.describe "Location Service" do
     city_state = "denver,co"
 
     response = LocationService.get_coords(city_state)
+    lat_lng = response[:results][0][:locations][0][:latLng]
 
-    expect(response).to be_a Hash
+    expect(lat_lng).to be_a Hash
+    expect(lat_lng).to have_key :lat
+    expect(lat_lng).to have_key :lng
   end
 end
