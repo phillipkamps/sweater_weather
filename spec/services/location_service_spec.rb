@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Location Service" do
+RSpec.describe LocationService do
   it "gets [lat,lng] for [city,state] from mapquest" do
     city_state = "madison,wi"
 
