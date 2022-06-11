@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe "Location Service" do
   it "gets [lat,lng] for [city,state] from mapquest" do
-    city_state = "denver,co"
+    city_state = "madison,wi"
 
-    response = LocationService.get_coords(city_state)
+    response = LocationService.get_data(city_state)
     lat_lng = response[:results][0][:locations][0][:latLng]
 
     expect(lat_lng).to be_a Hash
