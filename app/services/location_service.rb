@@ -7,8 +7,6 @@ class LocationService < BaseService
     end
   end
 
-  private
-
   def self.location_key
     ENV["location_key"]
   end

@@ -7,8 +7,6 @@ class ForecastService < BaseService
     end
   end
 
-  private
-
   def self.forecast_key
     ENV["forecast_key"]
   end
