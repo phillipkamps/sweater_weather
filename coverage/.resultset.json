@@ -10,11 +10,17 @@
           1,
           null,
           null,
+          null
+        ]
+      },
+      "/Users/phillipkamps/turing/3module/sweater_weather/app/poros/location.rb": {
+        "lines": [
           1,
           1,
           1,
           1,
-          null,
+          1,
+          1,
           null,
           null
         ]
@@ -54,6 +60,6 @@
         ]
       }
     },
-    "timestamp": 1654970341
+    "timestamp": 1654971068
   }
 }
