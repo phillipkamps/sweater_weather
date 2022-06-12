@@ -4,8 +4,7 @@ RSpec.describe Forecast do
   it "exists and has attributes" do
     lat = 43.073926
     lng = -89.385244
-    data = ForecastFacade.data(lat, lng)
-    forecast = Forecast.new(data)
+    forecast = ForecastFacade.data(lat, lng)
 
     expect(forecast.current[:dt]).to be_an Integer
     expect(forecast.daily.count).to eq 5
