@@ -1,6 +1,6 @@
 class Api::V1::BooksController < ApplicationController
   def search
-    if params[:location].nil? || params[:location].empty? || params[:location].class != String || params[:quantity].nil? || params[:quantity].empty? || params[:quantity].to_i <= 0
+    if params[:location].nil? || params[:location] == " " || params[:location] == "" || params[:location].class != String || params[:quantity].nil? || params[:quantity] == " " || params[:quantity] == " " || params[:quantity].to_i <= 0
       error = Error.new(400, "INCORRECT QUERY", "Location must be in [city, state] format, quantity must be integer greater than 0.")
       render json: ErrorSerializer.serialized_json(error), status: 400
     else
