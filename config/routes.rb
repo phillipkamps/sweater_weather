@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get "api/v1/backgrounds", to: "api/v1/backgrounds#landing"
 
   post "api/v1/users", to: "api/v1/users#create"
+
+  get "api/v1/book-search", to: "api/v1/book#search"
 end
