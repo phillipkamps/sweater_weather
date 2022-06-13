@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Forecast do
+RSpec.describe Books do
   it "exists and has attributes" do
     city_state = "madison,wi"
     quantity = 5
