@@ -6,9 +6,14 @@ RSpec.describe BookFacade do
     quantity = 5
     results = BookFacade.search(city_state, quantity)
 
-    expect(results).to be_a Hash
-    expect(results.count).to eq 5
-    # expect(results).to have_key :lat
-    # expect(results).to have_key :lng
+    expect(results.total_books_found).to be_an Integer
+    expect(results.books.count).to eq(quantity)
+    results.books.each do |book|
+      expect(book).to have_key :isbn
+      expect(book[:title]).to be_a String
+      expect(book[:publisher]).to be_an Array
+      expect(book).to_not have_key :type
+      expect(book).to_not have_key :author_facet
+    end
   end
 end

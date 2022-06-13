@@ -5,6 +5,7 @@ class Api::V1::BookController < ApplicationController
     current_forecast = unfiltered_forecast.current
 
     results = BookFacade.search(params[:location], params[:quantity])
+    binding.pry
     render json: BookSerializer.new(results)
   end
 end
