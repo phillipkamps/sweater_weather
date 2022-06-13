@@ -29,8 +29,12 @@ RSpec.describe "Sweater Weather API" do
     city_state = "madison,wi"
     quantity = -1
     get "/api/v1/book-search?location=#{city_state}&quantity=#{quantity}"
-    expect(response).to be_successful
-    binding.pry
-    parsed = JSON.parse(response.body, symbolize_names: true)
+    expect(response).to_not be_successful
+
+    parsed_error = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed_error[:status]).to eq "INCORRECT QUERY"
+    expect(parsed_error[:message]).to eq "Location must be in [city, state] format, quantity must be integer greater than 0."
+    expect(parsed_error[:code]).to eq 400
   end
 end
