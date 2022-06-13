@@ -24,4 +24,13 @@ RSpec.describe "Sweater Weather API" do
       expect(book_response[:publisher]).to be_an Array
     end
   end
+
+  it "sends error for sad path" do
+    city_state = "madison,wi"
+    quantity = -1
+    get "/api/v1/book-search?location=#{city_state}&quantity=#{quantity}"
+    expect(response).to be_successful
+    binding.pry
+    parsed = JSON.parse(response.body, symbolize_names: true)
+  end
 end
