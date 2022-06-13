@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   post "api/v1/users", to: "api/v1/users#create"
 
   get "api/v1/book-search", to: "api/v1/books#search"
+
+  post "api/v1/sessions", to: "api/v1/sessions#create"
 end
