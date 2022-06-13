@@ -3,7 +3,7 @@ class Books
   def initialize(unfiltered_json, quantity)
     @total_books_found = unfiltered_json[:numFound]
     @books =
-      unfiltered_json[:docs][0..(quantity - 1)].map do |book|
+      unfiltered_json[:docs][0..(quantity.to_i - 1)].map do |book|
         {
           isbn: book[:isbn],
           title: book[:title],

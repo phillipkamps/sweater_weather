@@ -1,4 +1,4 @@
-class BookService < BaseService
+class BooksService < BaseService
   class << self
     def get_search(city_state)
       response = conn("http://openlibrary.org")

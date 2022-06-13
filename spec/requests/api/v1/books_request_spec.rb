@@ -7,12 +7,15 @@ RSpec.describe "Sweater Weather API" do
     get "/api/v1/book-search?location=#{city_state}&quantity=#{quantity}"
     expect(response).to be_successful
 
-    # parsed = JSON.parse(response.body, symbolize_names: true)
-    # attributes = parsed[:data][:attributes]
-    #
-    # expect(attributes[:creator]).to be_a String
-    # expect(attributes[:image_url]).to be_a String
-    # expect(attributes).to_not have_key :created_at
-    # expect(attributes).to_not have_key :downloads
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    attributes = parsed[:data][:attributes]
+
+    expect(parsed[:data][:id]).to eq "null"
+    expect(parsed[:data][:type]).to eq "books"
+    expect(attributes[:destination]).to eq city_state
+    expect(attributes[:forecast]).to be_a Hash
+    expect(attributes[:total_books_found]).to be_an Integer
+    expect(attributes[:books]).to be_an Array
+    expect(attributes[:books][0].count).to eq quantity
   end
 end

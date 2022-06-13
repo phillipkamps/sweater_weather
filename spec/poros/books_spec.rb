@@ -4,7 +4,7 @@ RSpec.describe Books do
   it "exists and has attributes" do
     city_state = "madison,wi"
     quantity = 5
-    results = BookFacade.search(city_state, quantity)
+    results = BooksFacade.search(city_state, quantity)
 
     expect(results.total_books_found).to be_an Integer
     expect(results.books.count).to eq(quantity)
