@@ -13,9 +13,15 @@ RSpec.describe "Sweater Weather API" do
     expect(parsed[:data][:id]).to eq "null"
     expect(parsed[:data][:type]).to eq "books"
     expect(attributes[:destination]).to eq city_state
-    expect(attributes[:forecast]).to be_a Hash
+    expect(attributes[:forecast][:weather][0][:description]).to be_a String
+    expect(attributes[:forecast][:temp]).to be_a Float
     expect(attributes[:total_books_found]).to be_an Integer
     expect(attributes[:books]).to be_an Array
     expect(attributes[:books][0].count).to eq quantity
+    attributes[:books][0].each do |book_response|
+      expect(book_response).to have_key :isbn
+      expect(book_response[:title]).to be_a String
+      expect(book_response[:publisher]).to be_an Array
+    end
   end
 end
