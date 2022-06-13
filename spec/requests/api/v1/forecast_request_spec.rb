@@ -10,8 +10,6 @@ RSpec.describe "Sweater Weather API" do
     daily_weather = forecast_response[:data][:attributes][:daily_weather]
     hourly_weather = forecast_response[:data][:attributes][:hourly_weather]
 
-    expect(response).to be_successful
-
     expect(current_weather[:datetime]).to be_a String
     expect(current_weather[:icon]).to be_a String
     expect(current_weather).to_not have_key :pressure

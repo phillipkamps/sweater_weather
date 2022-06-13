@@ -1,13 +1,27 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/controllers/api/v1/backgrounds_controller.rb": {
+      "/Users/phillipkamps/turing/3module/sweater_weather/app/controllers/api/v1/users_controller.rb": {
         "lines": [
           1,
           1,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
           1,
           1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
           1,
           1,
           null,
@@ -20,133 +34,20 @@
           null
         ]
       },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/facades/location_facade.rb": {
+      "/Users/phillipkamps/turing/3module/sweater_weather/app/models/user.rb": {
         "lines": [
           1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
           null
         ]
       },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/services/location_service.rb": {
+      "/Users/phillipkamps/turing/3module/sweater_weather/app/models/application_record.rb": {
         "lines": [
           1,
           1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
           null
         ]
       },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/services/base_service.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          3,
-          null,
-          null,
-          1,
-          3,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/facades/forecast_facade.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/services/forecast_service.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/poros/forecast.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/facades/backgrounds_facade.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/services/backgrounds_service.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/poros/background.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/phillipkamps/turing/3module/sweater_weather/app/serializers/backgrounds_serializer.rb": {
+      "/Users/phillipkamps/turing/3module/sweater_weather/app/serializers/user_serializer.rb": {
         "lines": [
           1,
           1,
@@ -155,6 +56,6 @@
         ]
       }
     },
-    "timestamp": 1655062114
+    "timestamp": 1655089994
   }
 }
