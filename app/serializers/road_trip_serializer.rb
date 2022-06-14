@@ -9,8 +9,8 @@ class RoadTripSerializer
           end_city: destination,
           travel_time: ActiveSupport::Duration.build(travel_time).inspect,
           weather_at_eta: {
-            temperature: unfiltered_forecast.hourly[travel_time / 3600][:temp],
-            conditions: unfiltered_forecast.hourly[travel_time / 3600][:weather][0][:description]
+            temperature: unfiltered_forecast.hourly[travel_time / 3600].temperature,
+            conditions: unfiltered_forecast.hourly[travel_time / 3600].conditions
           }
         }
       }

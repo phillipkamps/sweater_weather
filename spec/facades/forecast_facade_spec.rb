@@ -8,7 +8,7 @@ RSpec.describe ForecastFacade do
     data = ForecastFacade.data(lat, lng)
 
     expect(data).to be_an_instance_of Forecast
-    expect(data.current).to be_a Hash
+    expect(data.current).to be_an_instance_of Current
     expect(data.daily).to be_an Array
     expect(data.hourly).to be_an Array
   end
