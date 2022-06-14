@@ -9,4 +9,14 @@ RSpec.describe LocationService do
     expect(response).to be_a Hash
     expect(response).to have_key :results
   end
+
+  it "gets directions from mapquest given two inputs" do
+    origin = "madison,wi"
+    destination = "denver,co"
+
+    response = LocationService.get_directions(origin, destination)
+
+    expect(response).to be_a Hash
+    expect(response[:route][:realTime]).to be_an Integer
+  end
 end

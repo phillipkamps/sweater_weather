@@ -22,7 +22,7 @@ RSpec.describe "Sweater Weather API" do
     expect(user_response[:type]).to eq "user"
     expect(user_response[:attributes][:email]).to be_a String
     expect(user_response[:attributes][:api_key]).to be_a String
-    expect(user_response).to_not have_key :password
-    expect(user_response).to_not have_key :password_confirmation
+    expect(user_response[:attributes]).to_not have_key :password
+    expect(user_response[:attributes]).to_not have_key :password_confirmation
   end
 end

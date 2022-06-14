@@ -6,8 +6,8 @@ RSpec.describe Forecast do
     lng = -89.385244
     forecast = ForecastFacade.data(lat, lng)
 
-    expect(forecast.current[:dt]).to be_an Integer
-    expect(forecast.daily.count).to eq 5
-    expect(forecast.hourly.count).to eq 8
+    expect(forecast.current).to be_an_instance_of Current
+    expect(forecast.daily.count).to eq 8
+    expect(forecast.hourly.count).to eq 48
   end
 end

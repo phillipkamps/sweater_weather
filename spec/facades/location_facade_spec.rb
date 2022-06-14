@@ -10,4 +10,14 @@ RSpec.describe LocationFacade do
     expect(coords).to have_key :lat
     expect(coords).to have_key :lng
   end
+
+  it ".directions gets travel_time" do
+    origin = "madison,wi"
+    destination = "denver,co"
+
+    response = LocationFacade.directions(origin, destination)
+
+    expect(response).to be_a Directions
+    expect(response.travel_time).to be_an Integer
+  end
 end
