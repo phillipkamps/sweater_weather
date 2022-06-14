@@ -1,4 +1,5 @@
 class Api::V1::RoadTripController < ApplicationController
+  before_action :valid_api_key?, only: [:create]
   def create
     coords = LocationFacade.coords(params[:destination])
     unfiltered_forecast = ForecastFacade.data(coords[:lat], coords[:lng])
@@ -8,6 +9,6 @@ class Api::V1::RoadTripController < ApplicationController
       travel_time,
       params[:origin],
       params[:destination]
-    )
+    ), status: :created
   end
 end

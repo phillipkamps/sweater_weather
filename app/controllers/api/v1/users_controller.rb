@@ -4,8 +4,8 @@ class Api::V1::UsersController < ApplicationController
     user.api_key = SecureRandom.alphanumeric(16)
     if user.save
       render json: UserSerializer.new(user), status: :created
-      # else
-      #   database_error(user)
+    else
+      render json: {error: "Invalid email or password"}, status: 401
     end
   end
 

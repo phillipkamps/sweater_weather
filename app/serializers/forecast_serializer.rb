@@ -6,9 +6,9 @@ class ForecastSerializer
         type: "forecast",
         attributes: {
           current_weather: {
-            datetime: Time.at(unfiltered_forecast.current.datetime).to_datetime,
-            sunrise: Time.at(unfiltered_forecast.current.sunrise).to_datetime,
-            sunset: Time.at(unfiltered_forecast.current.sunset).to_datetime,
+            datetime: Time.at(unfiltered_forecast.current.datetime).to_datetime.to_formatted_s(:short),
+            sunrise: Time.at(unfiltered_forecast.current.sunrise).to_datetime.to_formatted_s(:short),
+            sunset: Time.at(unfiltered_forecast.current.sunset).to_datetime.to_formatted_s(:short),
             temperature: unfiltered_forecast.current.temperature,
             feels_like: unfiltered_forecast.current.feels_like,
             humidity: unfiltered_forecast.current.humidity,
@@ -21,8 +21,8 @@ class ForecastSerializer
             unfiltered_forecast.daily[0..4].map do |day|
               {
                 date: Time.at(day.date).to_date,
-                sunrise: Time.at(day.sunrise).to_datetime,
-                sunset: Time.at(day.sunset).to_datetime,
+                sunrise: Time.at(day.sunrise).to_datetime.to_formatted_s(:short),
+                sunset: Time.at(day.sunset).to_datetime.to_formatted_s(:short),
                 max_temp: day.max_temp,
                 min_temp: day.min_temp,
                 conditions: day.conditions,
@@ -33,7 +33,7 @@ class ForecastSerializer
           hourly_weather: [
             unfiltered_forecast.hourly[0..7].map do |hour|
               {
-                time: Time.at(hour.time).to_datetime,
+                time: Time.at(hour.time).to_datetime.to_formatted_s(:short),
                 temperature: hour.temperature,
                 conditions: hour.conditions,
                 icon: hour.icon
