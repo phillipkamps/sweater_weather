@@ -22,5 +22,19 @@ RSpec.describe "Sweater Weather API" do
     }
     post "/api/v1/road_trip", headers: headers, params: JSON.generate(body)
     expect(response).to be_successful
+
+    parsed = JSON.parse(response.body, symbolize_names: true)
+    road_trip_response = parsed[:data]
+    road_trip_attributes = parsed[:data][:attributes]
+
+    expect(road_trip_response[:id]).to eq "null"
+    expect(road_trip_response[:type]).to eq "roadtrip"
+    expect(road_trip_attributes[:start_city]).to be_a String
+    expect(road_trip_attributes[:start_city]).to_not eq(road_trip_attributes[:end_city])
+    expect(road_trip_attributes[:end_city]).to be_a String
+    expect(road_trip_attributes[:end_city]).to_not eq(road_trip_attributes[:start_city])
+    expect(road_trip_attributes[:travel_time]).to be_a String
+    expect(road_trip_attributes[:weather_at_eta][:temperature]).to be_a Float
+    expect(road_trip_attributes[:weather_at_eta][:conditions]).to be_a String
   end
 end
