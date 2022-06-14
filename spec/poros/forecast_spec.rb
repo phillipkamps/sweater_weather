@@ -8,6 +8,6 @@ RSpec.describe Forecast do
 
     expect(forecast.current[:dt]).to be_an Integer
     expect(forecast.daily.count).to eq 5
-    expect(forecast.hourly.count).to eq 8
+    expect(forecast.hourly.count).to eq 48
   end
 end
