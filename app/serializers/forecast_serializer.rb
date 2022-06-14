@@ -1,118 +1,44 @@
 class ForecastSerializer
-  def self.filtered_forecast(forecast)
+  def self.filtered_forecast(unfiltered_forecast)
     {
       data: {
         id: nil,
         type: "forecast",
         attributes: {
           current_weather: {
-            datetime: Time.at(forecast.current[:dt]).to_datetime,
-            sunrise: Time.at(forecast.current[:sunrise]).to_datetime,
-            sunset: Time.at(forecast.current[:sunset]).to_datetime,
-            temperature: forecast.current[:temp],
-            feels_like: forecast.current[:feels_like],
-            humidity: forecast.current[:humidity],
-            uvi: forecast.current[:uvi],
-            visibility: forecast.current[:visibility],
-            description: forecast.current[:weather].first[:description],
-            icon: forecast.current[:weather][0][:icon]
+            datetime: Time.at(unfiltered_forecast.current.datetime).to_datetime,
+            sunrise: Time.at(unfiltered_forecast.current.sunrise).to_datetime,
+            sunset: Time.at(unfiltered_forecast.current.sunset).to_datetime,
+            temperature: unfiltered_forecast.current.temperature,
+            feels_like: unfiltered_forecast.current.feels_like,
+            humidity: unfiltered_forecast.current.humidity,
+            uvi: unfiltered_forecast.current.uvi,
+            visibility: unfiltered_forecast.current.visibility,
+            conditions: unfiltered_forecast.current.conditions,
+            icon: unfiltered_forecast.current.icon
           },
           daily_weather: [
-            {
-              date: Time.at(forecast.daily[0][:dt]).to_date,
-              sunrise: Time.at(forecast.daily[0][:sunrise]).to_datetime,
-              sunset: Time.at(forecast.daily[0][:sunset]).to_datetime,
-              max_temp: forecast.daily[0][:temp][:max],
-              min_temp: forecast.daily[0][:temp][:min],
-              conditions: forecast.daily[0][:weather][0][:description],
-              icon: forecast.daily[0][:weather][0][:icon]
-            },
-            {
-              date: Time.at(forecast.daily[1][:dt]).to_date,
-              sunrise: Time.at(forecast.daily[1][:sunrise]).to_datetime,
-              sunset: Time.at(forecast.daily[1][:sunset]).to_datetime,
-              max_temp: forecast.daily[1][:temp][:max],
-              min_temp: forecast.daily[1][:temp][:min],
-              conditions: forecast.daily[1][:weather][0][:description],
-              icon: forecast.daily[1][:weather][0][:icon]
-            },
-            {
-              date: Time.at(forecast.daily[2][:dt]).to_date,
-              sunrise: Time.at(forecast.daily[2][:sunrise]).to_datetime,
-              sunset: Time.at(forecast.daily[2][:sunset]).to_datetime,
-              max_temp: forecast.daily[2][:temp][:max],
-              min_temp: forecast.daily[2][:temp][:min],
-              conditions: forecast.daily[2][:weather][0][:description],
-              icon: forecast.daily[2][:weather][0][:icon]
-            },
-            {
-              date: Time.at(forecast.daily[3][:dt]).to_date,
-              sunrise: Time.at(forecast.daily[3][:sunrise]).to_datetime,
-              sunset: Time.at(forecast.daily[3][:sunset]).to_datetime,
-              max_temp: forecast.daily[3][:temp][:max],
-              min_temp: forecast.daily[3][:temp][:min],
-              conditions: forecast.daily[3][:weather][0][:description],
-              icon: forecast.daily[3][:weather][0][:icon]
-            },
-            {
-              date: Time.at(forecast.daily[4][:dt]).to_date,
-              sunrise: Time.at(forecast.daily[4][:sunrise]).to_datetime,
-              sunset: Time.at(forecast.daily[4][:sunset]).to_datetime,
-              max_temp: forecast.daily[4][:temp][:max],
-              min_temp: forecast.daily[4][:temp][:min],
-              conditions: forecast.daily[4][:weather][0][:description],
-              icon: forecast.daily[4][:weather][0][:icon]
-            }
+            unfiltered_forecast.daily[0..4].map do |day|
+              {
+                date: Time.at(day.date).to_date,
+                sunrise: Time.at(day.sunrise).to_datetime,
+                sunset: Time.at(day.sunset).to_datetime,
+                max_temp: day.max_temp,
+                min_temp: day.min_temp,
+                conditions: day.conditions,
+                icon: day.icon
+              }
+            end
           ],
           hourly_weather: [
-            {
-              time: Time.at(forecast.hourly[0][:dt]).to_datetime,
-              temperature: forecast.hourly[0][:temp],
-              conditions: forecast.hourly[0][:weather][0][:description],
-              icon: forecast.hourly[0][:weather][0][:icon]
-            },
-            {
-              time: Time.at(forecast.hourly[1][:dt]).to_datetime,
-              temperature: forecast.hourly[1][:temp],
-              conditions: forecast.hourly[1][:weather][0][:description],
-              icon: forecast.hourly[1][:weather][0][:icon]
-            },
-            {
-              time: Time.at(forecast.hourly[2][:dt]).to_datetime,
-              temperature: forecast.hourly[2][:temp],
-              conditions: forecast.hourly[2][:weather][0][:description],
-              icon: forecast.hourly[2][:weather][0][:icon]
-            },
-            {
-              time: Time.at(forecast.hourly[3][:dt]).to_datetime,
-              temperature: forecast.hourly[3][:temp],
-              conditions: forecast.hourly[3][:weather][0][:description],
-              icon: forecast.hourly[3][:weather][0][:icon]
-            },
-            {
-              time: Time.at(forecast.hourly[4][:dt]).to_datetime,
-              temperature: forecast.hourly[4][:temp],
-              conditions: forecast.hourly[4][:weather][0][:description],
-              icon: forecast.hourly[4][:weather][0][:icon]
-            },
-            {
-              time: Time.at(forecast.hourly[5][:dt]).to_datetime,
-              temperature: forecast.hourly[5][:temp],
-              conditions: forecast.hourly[5][:weather][0][:description],
-              icon: forecast.hourly[5][:weather][0][:icon]
-            },
-            {
-              time: Time.at(forecast.hourly[6][:dt]).to_datetime,
-              temperature: forecast.hourly[6][:temp],
-              conditions: forecast.hourly[6][:weather][0][:description],
-              icon: forecast.hourly[6][:weather][0][:icon]
-            },
-            {
-              time: Time.at(forecast.hourly[7][:dt]).to_datetime,
-              temperature: forecast.hourly[7][:temp],
-              conditions: forecast.hourly[7][:weather][0][:description],
-              icon: forecast.hourly[7][:weather][0][:icon]
-            }
+            unfiltered_forecast.hourly[0..7].map do |hour|
+              {
+                time: Time.at(hour.time).to_datetime,
+                temperature: hour.temperature,
+                conditions: hour.conditions,
+                icon: hour.icon
+              }
+            end
           ]
         }
       }
